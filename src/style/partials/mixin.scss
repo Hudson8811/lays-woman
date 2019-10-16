@@ -173,3 +173,8 @@ $media-direction: max !default;
     }
   }
 };
+
+
+@function vw($px) {
+  @return (($px/$resolution) * 100)+vw;
+}
