@@ -5,6 +5,8 @@ $(document).ready(function() {
         mousewheel: true
     });
 
-
+    $('.first-slide .arrow-right').click(function () {
+        swiper.slideNext();
+    });
 
 });

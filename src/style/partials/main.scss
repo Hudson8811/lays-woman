@@ -115,7 +115,7 @@ body{
 	.promo-block{
 		position: fixed;
 		bottom: 0;
-		left: vw(509);
+		left: vw(626);
 		z-index: 10;
 		.flex-block{
 			display: flex;
@@ -262,6 +262,7 @@ body{
 					font-size: vw(52);
 					font-weight: 700;
 					width: vw(760);
+					cursor: default;
 				}
 				.open{
 					margin-top: vw(39);
@@ -292,4 +293,8 @@ body{
 			}
 		}
 	}
+}
+
+.recept-page{
+
 }
