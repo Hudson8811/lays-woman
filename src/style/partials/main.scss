@@ -1,0 +1,18 @@
+$font1: "Roboto", sans-serif;
+$font2: "Lays";
+
+a{
+	text-decoration: none;
+}
+
+body{
+	color: #000;
+	font-family: $font1;
+	margin: 0;
+	font-size: 1vw;
+}
+
+.container{
+	margin: 0 auto;
+	position: relative;
+}
