@@ -117,8 +117,8 @@ $(document).ready(function() {
                 lockScroll();
                 $('.first-screen').slideUp(400);
                 $('html,body').animate({
-                    scrollTop: 2
-                }, 410, 'linear');
+                    scrollTop: 5
+                }, 420, 'linear');
                 setTimeout(function () {
                     scrollLock = 0;
                     scrolled = 1;

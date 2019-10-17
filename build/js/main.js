@@ -130,7 +130,7 @@ $(document).ready(function() {
                 $('.first-screen').slideUp(400);
                 $('html,body').animate({
                     scrollTop: 1
-                }, 400, 'linear');
+                }, 410, 'linear');
                 setTimeout(function () {
                     scrolled = 1;
                     scrollLock = 0;
@@ -154,8 +154,8 @@ $(document).ready(function() {
                 lockScroll();
                 $('.first-screen').slideUp(400);
                 $('html,body').animate({
-                    scrollTop: 2
-                }, 410, 'linear');
+                    scrollTop: 5
+                }, 420, 'linear');
                 setTimeout(function () {
                     scrollLock = 0;
                     scrolled = 1;
