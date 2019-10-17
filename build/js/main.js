@@ -113,6 +113,9 @@ $(document).ready(function() {
         $body.css({'margin-right': 0, 'margin-bottom': 0});
     }
 
+    var $window = $( window );
+    var $featuredImage = $( ".recept-block .left .img" );
+    var offsetTo = 0;
 
     scrolled = 0;
     scrollLock = 0;
@@ -151,25 +154,25 @@ $(document).ready(function() {
                 lockScroll();
                 $('.first-screen').slideUp(400);
                 $('html,body').animate({
-                    scrollTop: 1
-                }, 400, 'linear');
+                    scrollTop: 2
+                }, 410, 'linear');
                 setTimeout(function () {
                     scrollLock = 0;
                     scrolled = 1;
                     unlockScroll();
                 }, 450);
+
+                $featuredImage.toggleClass( "is-sticky" );
             }
         });
 
 
-        var $window = $( window );
-        var $featuredImage = $( ".recept-block .left .img" );
-        var offsetTo = 0;
         $window.on( "scroll", function() {
             $featuredImage.toggleClass( "is-sticky",
                 $window.scrollTop() > offsetTo
             );
         } );
+
     }
 
 });
