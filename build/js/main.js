@@ -39,7 +39,26 @@ $(document).ready(function() {
     swiper = new Swiper('.swiper-container.recepts', {
         slidesPerView: 'auto',
         spaceBetween: 0,
-        mousewheel: true
+        mousewheel: true,
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            },
+            1024: {
+                slidesPerView: 'auto',
+                pagination: false
+            }
+        }
+    });
+
+    $('.bottom-block .share').hover(function () {
+        $(this).find('.social-wrapper').slideDown();
+    },function () {
+        $(this).find('.social-wrapper').slideUp();
     });
 
     $('.first-slide .arrow-right').click(function () {
