@@ -590,7 +590,51 @@ body{
 	}
 
 	.promo-block{
+		margin-top: vw(104);
 		width: 100%;
 		height: vw(1055);
+		background: url("../img/bottom-bg.jpg") center top no-repeat;
+		background-size: cover;
+		position: relative;
+		.text-block{
+			width: vw(798);
+			height: vw(737);
+			box-shadow: 0 0 vw(57) rgba(81, 38, 0, 0.08);
+			border-radius: vw(30);
+			background-color: #ffffff;
+			position: absolute;
+			top: vw(170);
+			left: vw(250);
+			padding: vw(89) vw(80) vw(10) vw(96);
+			box-sizing: border-box;
+			.title{
+				color: #ffd200;
+				font-family: $font2;
+				font-size: vw(70);
+				font-weight: 700;
+				line-height: vw(70);
+			}
+			.text{
+				font-size: vw(22);
+				line-height: vw(33);
+				margin-top: vw(37);
+				p{
+					+p{
+						margin-top: vw(24);
+					}
+				}
+			}
+		}
+		.subtext{
+			color: #a8a8a8;
+			font-size: vw(15);
+			margin-top: vw(29);
+		}
+		.img-1{
+			position: absolute;
+			width: vw(241);
+			left: vw(464);
+			top: vw(-111);
+		}
 	}
 }
