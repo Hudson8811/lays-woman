@@ -60,6 +60,7 @@ body{
 				padding: vw(14) vw(30);
 				cursor: pointer;
 				transition: all 0.1s linear;
+				user-select: none;
 				+.tab{
 					margin-left: vw(16);
 				}
@@ -146,6 +147,9 @@ body{
 
 	.main-container{
 		.recepts{
+			.non-swiper-slide{
+				display: none !important;
+			}
 			.swiper-slide{
 				width: auto;
 			}
@@ -233,29 +237,35 @@ body{
 				margin-right: vw(135);
 				width: vw(929);
 				height: vw(634);
-				box-sizing: border-box;
-				background-color: rgba(0, 0, 0, 0.3);
-				background-size: cover;
-				background-repeat: no-repeat;
-				background-position: center top;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-				position: relative;
-				z-index: 1;
-				&::before{
-					z-index: -1;
-					content: "";
+				display: block;
+				.full-cover{
 					width: 100%;
 					height: 100%;
+					box-sizing: border-box;
 					background-color: rgba(0, 0, 0, 0.3);
-					display: block;
-					position: absolute;
-					left: 0;
-					top: 0;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center top;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					position: relative;
+					z-index: 1;
+					&::before{
+						z-index: -1;
+						content: "";
+						width: 100%;
+						height: 100%;
+						background-color: rgba(0, 0, 0, 0.3);
+						display: block;
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
 				}
+
 				.title{
 					color: #ffffff;
 					font-family: $font2;
@@ -409,8 +419,6 @@ body{
 			width: vw(874);
 			.img{
 				width: 100%;
-				position: sticky;
-				top: 0;
 				img{
 					display: block;
 					width: 100%;

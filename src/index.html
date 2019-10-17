@@ -20,13 +20,13 @@
 		<div class="top-block">
 			<a href="" class="logo"><img src="img/logo.png" alt=""></a>
 			<div class="tabs">
-				<div class="tab active">Все рецепты</div>
-				<div class="tab">#закуска </div>
-				<div class="tab">#горячее</div>
-				<div class="tab">#десерт</div>
-				<div class="tab">#vegan</div>
-				<div class="tab">#быстро </div>
-				<div class="tab">#морепродукты</div>
+				<div class="tab active" data-filter="all">Все рецепты</div>
+				<div class="tab" data-filter="1">#закуска </div>
+				<div class="tab" data-filter="2">#горячее</div>
+				<div class="tab" data-filter="3">#десерт</div>
+				<div class="tab" data-filter="4">#vegan</div>
+				<div class="tab" data-filter="5">#быстро </div>
+				<div class="tab" data-filter="6">#морепродукты</div>
 			</div>
 		</div>
 
@@ -34,7 +34,7 @@
 
 			<div class="swiper-container recepts">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide first-slide">
+					<div data-filter="all" class="swiper-slide first-slide">
 						<h1 class="title">Рецепты из печи</h1>
 						<div class="slide-content">
 							<div class="flex-block">
@@ -55,54 +55,74 @@
 						<div class="arrow-right"></div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Печеный баклажан и соус из кориандра, картофельные чипсы VEGAN</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[1,4]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Печеный баклажан и соус из кориандра, картофельные чипсы VEGAN</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Печеная свекла с бальзамическим уксусом из черной смородины и овечьим сыром</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[1,4]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Печеная свекла с бальзамическим уксусом из черной смородины и овечьим сыром</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Хумус из печеной в меде тыквы с пряными семечками и орехами</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[1,5,4]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Хумус из печеной в меде тыквы с пряными семечками и орехами</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Пряные Томаты из печи с сыром страчателла и песто из пяти трав</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[1,4]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Пряные Томаты из печи с сыром страчателла и песто из пяти трав</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Лосось, запеченный в имбирном соусе с пюре из тыквы и корицы</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[2,6]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Лосось, запеченный в имбирном соусе с пюре из тыквы и корицы</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Запеченная перловая каша с лисичками и копченым сыром</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[2,5,4]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Запеченная перловая каша с лисичками и копченым сыром</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Утиная ножка из печи с курагой и соусом из облепихи и ванили</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[2]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Утиная ножка из печи с курагой и соусом из облепихи и ванили</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Фаланги краба с апельсиновыми цукатами , соус беарнез </div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[2,6]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Фаланги краба с апельсиновыми цукатами , соус беарнез </div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Вяленый инжир , запеченный под ванильным «Английским Кремом» ,воздушный рис</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[3,4,5]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Вяленый инжир , запеченный под ванильным «Английским Кремом» ,воздушный рис</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 
-					<div class="swiper-slide item" style="background-image: url(img/recept/recept1.jpg)">
-						<div class="title">Тыквенный пирог с корицей и кремом из козьего сыра</div>
-						<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+					<div data-filter="[3,4]" class="swiper-slide item">
+						<div class="full-cover" style="background-image: url(img/recept/recept1.jpg)" >
+							<div class="title">Тыквенный пирог с корицей и кремом из козьего сыра</div>
+							<a href="recept.html" class="open"><img src="img/Kurisu.svg" alt="">открыть рецепт</a>
+						</div>
 					</div>
 				</div>
 			</div>
