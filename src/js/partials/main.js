@@ -86,25 +86,24 @@ $(document).ready(function() {
     if ($('.recept-page').hasClass('recept-page')){
         $(window).on('scroll', function() {
             var scrollTop = $(this).scrollTop();
-
             if (scrollTop > 0 && scrolled == 0 && scrollLock == 0){
                 scrollLock = 1;
+                scrolled = 1;
                 lockScroll();
                 $('.first-screen').slideUp(400);
                 $('html,body').animate({
                     scrollTop: 1
                 }, 410, 'linear');
                 setTimeout(function () {
-                    scrolled = 1;
                     scrollLock = 0;
                     unlockScroll();
                 }, 450);
             } else if (scrollTop == 0 && scrolled == 1 && scrollLock == 0){
                 scrollLock = 1;
+                scrolled = 0;
                 $('.first-screen').slideDown(400);
                 lockScroll();
                 setTimeout(function () {
-                    scrolled = 0;
                     scrollLock = 0;
                     unlockScroll();
                 }, 450);
@@ -112,20 +111,10 @@ $(document).ready(function() {
         });
 
         $('.first-screen .open .arrow-down').click(function () {
-            if (scrolled == 0 && scrollLock == 0) {
-                scrollLock = 1;
-                lockScroll();
-                $('.first-screen').slideUp(400);
+            if (scrolled == 0&& scrollLock == 0) {
                 $('html,body').animate({
-                    scrollTop: 5
-                }, 420, 'linear');
-                setTimeout(function () {
-                    scrollLock = 0;
-                    scrolled = 1;
-                    unlockScroll();
-                }, 450);
-
-                $featuredImage.toggleClass( "is-sticky" );
+                    scrollTop: 1
+                }, 100, 'linear');
             }
         });
 
