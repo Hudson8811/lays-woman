@@ -8,7 +8,7 @@ a{
 	text-decoration: none;
 }
 html{
-	height: 100vh;
+	height: 100%;
 }
 
 body{
@@ -17,7 +17,7 @@ body{
 	margin: 0;
 	font-size: 1vw;
 	background: #ffffff;
-	height: 100vh;
+	height: 100%;
 }
 
 .container{
@@ -125,12 +125,15 @@ body{
 }
 
 .home-page{
+	height: 100%;
 	.top-block{
 		padding: vw(30) vw(70);
 		display: flex;
 		align-items: flex-start;
+		box-sizing: border-box;
 		@include media((
-						padding: (md: vw2(30) 0 vw2(45) vw2(19))
+						padding: (md: vw2(30) 0 vw2(45) vw2(19)),
+						min-height: (md: vw2(200))
 		));
 		.logo{
 			display: block;
@@ -198,6 +201,10 @@ body{
 		left: 0;
 		bottom: 0;
 		z-index: 9;
+		@include media((
+						position: (md: static),
+						min-height: (md: vw2(81)),
+		));
 	}
 
 	.promo-block{
@@ -247,10 +254,14 @@ body{
 	}
 
 	.main-container{
+		@include media((
+						height: (md: calc(100% - (281/768) *100vw )),
+		));
 		.recepts{
 			padding-right: vw(135);
 			@include media((
-							padding-right: (md: vw2(0))
+							padding-right: (md: vw2(0)),
+							height: (md: 100%),
 			));
 			.non-swiper-slide{
 				display: none !important;
@@ -264,7 +275,7 @@ body{
 				height: vw(634);
 				@include media((
 								margin-left: (md: vw2(0)),
-								height: (md: calc( 100vh - (281/768) *100vw )),
+								height: (md: 100%),
 				));
 				.flex-mobile{
 					@include media((
@@ -407,7 +418,7 @@ body{
 				@include media((
 								margin-left: (md: 0),
 								width: (md: vw2(100%)),
-								height: (md: calc( 100vh - (281/768) *100vw )),
+								height: (md: 100%),
 				));
 				.full-cover{
 					width: 100%;
