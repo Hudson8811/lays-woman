@@ -55,11 +55,7 @@ $(document).ready(function() {
         }
     });
 
-    $('.bottom-block .share').hover(function () {
-        $(this).find('.social-wrapper').slideDown();
-    },function () {
-        $(this).find('.social-wrapper').slideUp();
-    });
+
 
     $('.first-slide .arrow-right').click(function () {
         swiper.slideNext();
