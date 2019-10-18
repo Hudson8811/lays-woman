@@ -78,7 +78,20 @@ $(document).ready(function() {
             swiper = new Swiper('.swiper-container.recepts', {
                 slidesPerView: 'auto',
                 spaceBetween: 0,
-                mousewheel: true
+                mousewheel: true,
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                    },
+                    1024: {
+                        slidesPerView: 'auto',
+                        pagination: false
+                    }
+                }
             });
         }
         else {
@@ -95,7 +108,20 @@ $(document).ready(function() {
             swiper = new Swiper('.swiper-container.recepts', {
                 slidesPerView: 'auto',
                 spaceBetween: 0,
-                mousewheel: true
+                mousewheel: true,
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                    },
+                    1024: {
+                        slidesPerView: 'auto',
+                        pagination: false
+                    }
+                }
             });
         }
     });

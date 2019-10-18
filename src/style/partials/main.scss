@@ -36,7 +36,7 @@ body{
 		display: flex;
 		align-items: flex-start;
 		@include media((
-						padding: (md: vw2(30) 0 vw2(30) vw2(19))
+						padding: (md: vw2(30) 0 vw2(45) vw2(19))
 		));
 		.logo{
 			display: block;
@@ -112,7 +112,7 @@ body{
 		bottom: 0;
 		z-index: 9;
 		@include media((
-						padding: (md: vw2(10) vw2(24) vw2(24) vw2(31))
+						padding: (md: vw2(20) vw2(24) vw2(24) vw2(31))
 		));
 		.woman{
 			width: vw(168);
@@ -198,6 +198,7 @@ body{
 	}
 
 	.promo-block{
+		pointer-events: none;
 		position: fixed;
 		bottom: 0;
 		left: vw(626);
@@ -222,6 +223,7 @@ body{
 				));
 			}
 			.img{
+				pointer-events: auto;
 				display: block;
 				width: vw(359);
 				transition: transform 0.1s linear;
@@ -244,6 +246,9 @@ body{
 	.main-container{
 		.recepts{
 			padding-right: vw(135);
+			@include media((
+							padding-right: (md: vw2(0))
+			));
 			.non-swiper-slide{
 				display: none !important;
 			}
@@ -254,17 +259,41 @@ body{
 				margin-left: vw(81);
 				position: relative;
 				height: vw(634);
+				@include media((
+								margin-left: (md: vw2(0)),
+								height: (md: calc( 100vh - (281/768) *100vw )),
+				));
+				.flex-mobile{
+					@include media((
+									width: (md: 100%),
+									height: (md: 100%),
+									display: (md: flex),
+									flex-direction: (md: column),
+									align-items: (md: center),
+									padding-top: (md: vw2(60))
+					));
+				}
 				.title{
 					color: #b2d612;
 					font-family: $font2;
 					font-size: vw(110);
 					font-weight: 700;
 					line-height: 0.8;
+					@include media((
+									font-size: (md: vw2(110)),
+									text-align: (md: center),
+									width: (md: vw2(500)),
+									margin: (md: 0 auto),
+					));
 				}
 				.slide-content{
 					margin-top: vw(57);
 					margin-left: vw(113);
 					width: vw(550);
+					@include media((
+									margin: (md: vw2(22) auto 0),
+									width: (md: vw2(550)),
+					));
 					.flex-block{
 						display: flex;
 						align-items: flex-start;
@@ -272,6 +301,11 @@ body{
 							width: vw(168);
 							min-width: vw(168);
 							margin-top: vw(12);
+							@include media((
+											width: (md: vw2(168)),
+											min-width: (md: vw2(168)),
+											margin-top: (md: vw2(11)),
+							));
 							img{
 								display: block;
 								width: 100%;
@@ -280,10 +314,17 @@ body{
 						}
 						.right{
 							margin-left: vw(19);
+							@include media((
+											margin-left: (md: vw2(19))
+							));
 							.role{
 								color: #8a8a8a;
 								font-size: vw(20);
 								line-height: vw(20);
+								@include media((
+												font-size: (md: vw2(20)),
+												line-height: (md: vw2(20)),
+								));
 							}
 							.name{
 								color: #000000;
@@ -291,12 +332,21 @@ body{
 								font-weight: 500;
 								margin-top: vw(15);
 								margin-bottom: vw(15);
+								@include media((
+												font-size: (md: vw2(40)),
+												margin-top: (md: vw2(15)),
+												margin-bottom: (md: vw2(15)),
+								));
 							}
 							.text{
 								color: #8a8a8a;
 								font-size: vw(20);
 								font-weight: 400;
 								line-height: vw(30);
+								@include media((
+												font-size: (md: vw2(20)),
+												line-height: (md: vw2(30)),
+								));
 							}
 						}
 					}
@@ -306,9 +356,17 @@ body{
 						font-size: vw(22);
 						font-weight: 400;
 						line-height: vw(30);
+						@include media((
+										margin-top: (md: vw2(45)),
+										font-size: (md: vw2(22)),
+										line-height: (md: vw2(30)),
+						));
 						p{
 							+p{
 								margin-top: vw(20);
+								@include media((
+												margin-top: (md: vw2(20))
+								));
 							}
 						}
 					}
@@ -324,6 +382,15 @@ body{
 					top: vw(324);
 					cursor: pointer;
 					transition: transform 0.1s linear;
+					@include media((
+									width: (md: vw2(100)),
+									height: (md: vw2(72)),
+									border-radius: (md: vw2(36)),
+									background-size: (md: vw2(29) auto),
+									background-position: (md: center right vw2(24)),
+									position: (md: static),
+									margin-top: (md: vw2(65)),
+					));
 					&:hover{
 						transform: scale(1.1);
 					}
@@ -334,6 +401,11 @@ body{
 				width: vw(929);
 				height: vw(634);
 				display: block;
+				@include media((
+								margin-left: (md: 0),
+								width: (md: vw2(100%)),
+								height: (md: calc( 100vh - (281/768) *100vw )),
+				));
 				.full-cover{
 					width: 100%;
 					height: 100%;
@@ -349,6 +421,10 @@ body{
 					text-align: center;
 					position: relative;
 					z-index: 1;
+					@include media((
+									justify-content: (md: flex-start),
+									padding-top: (md: vw2(260)),
+					));
 					&::before{
 						z-index: -1;
 						content: "";
@@ -369,6 +445,10 @@ body{
 					font-weight: 700;
 					width: vw(760);
 					cursor: default;
+					@include media((
+									font-size: (md: vw2(52)),
+									width: (md: vw2(700)),
+					));
 				}
 				.open{
 					margin-top: vw(39);
@@ -383,20 +463,52 @@ body{
 					letter-spacing: vw(0.36);
 					padding: vw(14) vw(25);
 					margin-bottom: vw(10);
+					@include media((
+									margin-top: (md: vw2(39)),
+									border-radius: (md: vw2(25)),
+									font-size: (md: vw2(20)),
+									letter-spacing: (md: vw2(0.36)),
+									padding: (md: vw2(14) vw2(25)),
+					));
 					img{
 						width: vw(22);
 						height: vw(22);
 						display: inline-block;
 						vertical-align: middle;
 						margin-right: vw(13);
+						@include media((
+										width: (md: vw2(22)),
+										height: (md: vw2(22)),
+										margin-right: (md: vw2(13)),
+						));
 					}
 					&:hover{
 						padding: vw(19) vw(32);
 						margin-bottom: 0;
 						border-radius: vw(30);
+						@include media((
+										padding: (md: vw2(19) vw2(32)),
+										border-radius: (md: vw2(30)),
+						));
 					}
 				}
 			}
+
+
+			.swiper-pagination{
+				bottom: vw2(18);
+				.swiper-pagination-bullet {
+					width: vw2(15);
+					height: vw2(15);
+					background: #ffffff;
+					opacity: 1;
+					margin: 0 vw2(2.5);
+					&.swiper-pagination-bullet-active{
+						background-color: #ffd200;
+					}
+				}
+			}
+
 		}
 	}
 }
