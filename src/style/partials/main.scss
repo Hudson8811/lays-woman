@@ -111,9 +111,15 @@ body{
 		left: 0;
 		bottom: 0;
 		z-index: 9;
+		@include media((
+						padding: (md: vw2(10) vw2(24) vw2(24) vw2(31))
+		));
 		.woman{
 			width: vw(168);
 			display: block;
+			@include media((
+							width: (md: vw2(168))
+			));
 			img{
 				width: 100%;
 				display: block;
@@ -122,6 +128,9 @@ body{
 		.share{
 			display: block;
 			width: vw(30);
+			@include media((
+							width: (md: vw2(30))
+			));
 			position: relative;
 			svg{
 				width: 100%;
@@ -142,12 +151,19 @@ body{
 				display: none;
 				overflow: hidden;
 				border-radius: vw(15);
+				@include media((
+								margin-left: (md: vw2(-22)),
+								border-radius: (md: vw2(15)),
+				));
 			}
 			.social-block{
 				display: flex;
 				flex-direction: column;
 				background: #ffffff;
 				padding: vw(10);
+				@include media((
+								padding: (md: vw2(10))
+				));
 				a{
 					width: vw(46);
 					height: vw(46);
@@ -156,6 +172,10 @@ body{
 					background-position: center center;
 					background-repeat: no-repeat;
 					cursor: pointer;
+					@include media((
+									width: (md: vw2(46)),
+									height: (md: vw2(46)),
+					));
 					&.fb{background-image: url("../img/fb_red.svg")}
 					&.vk{background-image: url("../img/vk-red.svg")}
 					&.ok{background-image: url("../img/ok_red.svg")}
@@ -165,6 +185,10 @@ body{
 					}
 					+a{
 						margin-top: vw(10);
+						@include media((
+									margin-top: (md: vw2(10)),
+									height: (md: vw2(46))
+						));
 					}
 				}
 			}
@@ -178,6 +202,9 @@ body{
 		bottom: 0;
 		left: vw(626);
 		z-index: 10;
+		@include media((
+						left: (md: vw2(284))
+		));
 		.flex-block{
 			display: flex;
 			align-items: flex-end;
@@ -188,12 +215,21 @@ body{
 				font-size: vw(30);
 				font-weight: 700;
 				margin-bottom: vw(35);
+				@include media((
+								width: (md: vw2(200)),
+								font-size: (md: vw2(18)),
+								margin-bottom: (md: vw2(20))
+				));
 			}
 			.img{
 				display: block;
 				width: vw(359);
 				transition: transform 0.1s linear;
 				transform-origin: center bottom;
+				@include media((
+								width: (md: vw2(215)),
+								margin-left: (md: vw2(-20)),
+				));
 				img{
 					display: block;
 					width: 100%;
