@@ -75,7 +75,7 @@ gulp.task('style:build', function () {
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(sass())
-		//.pipe(gcmq())
+		.pipe(gcmq())
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions']
 		}))
