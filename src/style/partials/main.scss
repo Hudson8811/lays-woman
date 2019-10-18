@@ -283,6 +283,7 @@ body{
 			}
 			.swiper-slide{
 				width: auto;
+				user-select: none;
 			}
 			.first-slide{
 				margin-left: vw(81);
