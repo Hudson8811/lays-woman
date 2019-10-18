@@ -78,6 +78,7 @@ body{
 			display: none;
 			overflow: hidden;
 			border-radius: vw(15);
+			z-index: 10;
 			@include media((
 							margin-left: (md: vw2(-22)),
 							border-radius: (md: vw2(15)),
