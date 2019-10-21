@@ -34,7 +34,7 @@ body{
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	padding: vw(10) vw(38) vw(38) vw(56);
+	padding: vw(10) vw(38) vw(38) vw(70);
 	background: #ffffff;
 	width: 100%;
 	box-sizing: border-box;
@@ -1132,7 +1132,7 @@ body{
 		justify-content: flex-end;
 		.woman{
 			position: fixed;
-			left: vw(56);
+			left: vw(104);
 			bottom: vw(31);
 			z-index: 3;
 			filter: invert(1);
@@ -1141,7 +1141,7 @@ body{
 				filter: invert(0);
 			}
 			@include media((
-							left: (md: vw2(31)),
+							left: (md: vw2(49)),
 							bottom: (md: vw2(24)),
 			));
 		}
