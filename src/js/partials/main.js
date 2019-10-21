@@ -119,6 +119,7 @@ $(document).ready(function() {
 
     var $window = $( window );
     var $featuredImage = $( ".recept-block .left .img" );
+    var $featuredImage2 = $( ".recept-page .bottom-block .woman" );
     var offsetTo = 0;
 
     scrolled = 0;
@@ -162,6 +163,9 @@ $(document).ready(function() {
 
         $window.on( "scroll", function() {
             $featuredImage.toggleClass( "is-sticky",
+                $window.scrollTop() > offsetTo
+            );
+            $featuredImage2.toggleClass( "is-sticky",
                 $window.scrollTop() > offsetTo
             );
         } );

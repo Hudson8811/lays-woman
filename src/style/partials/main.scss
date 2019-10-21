@@ -93,7 +93,6 @@ body{
 		.social-block{
 			display: flex;
 			align-items: center;
-			background: #ffffff;
 			padding: vw(10);
 			@include media((
 							padding: (md: vw2(10))
@@ -128,10 +127,8 @@ body{
 		}
 		&:hover{
 			.social-wrapper{
-				box-shadow: 0 0 vw(38) rgba(0, 0, 0, 0.26);
 				max-width: vw(300);
 				@include media((
-								box-shadow: (md: 0 0 vw2(38) rgba(0, 0, 0, 0.26)),
 								max-width: (md: vw2(300)),
 				));
 			}
@@ -251,7 +248,7 @@ body{
 				pointer-events: auto;
 				display: block;
 				width: vw(359);
-				transition: transform 0.1s linear;
+				transition: transform 0.3s ease;
 				transform-origin: center bottom;
 				@include media((
 								width: (md: vw2(215)),
@@ -404,24 +401,45 @@ body{
 					width: vw(100);
 					height: vw(72);
 					border-radius: vw(36);
-					background: url(../img/arrow-right.png) #ffd200 center right vw(24) no-repeat;
+					background: url(../img/arrow-right.png) center right vw(24) no-repeat;
 					background-size: vw(29) auto;
 					position: absolute;
 					right: 0;
 					top: vw(324);
 					cursor: pointer;
-					transition: transform 0.1s linear;
+					animation: 0.5s infinite alternate arrowLR;
 					@include media((
 									width: (md: vw2(100)),
 									height: (md: vw2(72)),
+									top: (md: auto),
+									right: (md: auto),
 									border-radius: (md: vw2(36)),
 									background-size: (md: vw2(29) auto),
 									background-position: (md: center right vw2(24)),
-									position: (md: static),
+									position: (md: relative),
 									margin-top: (md: vw2(45)),
+									animation-name: (md: arrowLR_mob),
 					));
+					&::after{
+						content: "";
+						display: block;
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						left: 0;
+						top: 0;
+						z-index: -1;
+						background: #ffd200;
+						transition: transform 0.25s linear;
+						border-radius: vw(36);
+						@include media((
+										border-radius: (md: vw2(36)),
+						));
+					}
 					&:hover{
-						transform: scale(1.1);
+						&::after{
+							transform: scale(1.1);
+						}
 					}
 				}
 			}
@@ -450,6 +468,7 @@ body{
 					text-align: center;
 					position: relative;
 					z-index: 1;
+					cursor: pointer;
 					@include media((
 									justify-content: (md: flex-start),
 									padding-top: (md: vw2(260)),
@@ -464,6 +483,21 @@ body{
 						position: absolute;
 						left: 0;
 						top: 0;
+						transition: background-color 0.25s ease;
+					}
+					&:hover{
+						&::before{
+							background-color: rgba(0, 0, 0, 0.45);
+						}
+						.open{
+							padding: vw(19) vw(32);
+							margin-bottom: 0;
+							border-radius: vw(30);
+							@include media((
+											padding: (md: vw2(19) vw2(32)),
+											border-radius: (md: vw2(30)),
+							));
+						}
 					}
 				}
 
@@ -473,7 +507,6 @@ body{
 					font-size: vw(52);
 					font-weight: 700;
 					width: vw(760);
-					cursor: default;
 					@include media((
 									font-size: (md: vw2(52)),
 									width: (md: vw2(700)),
@@ -484,7 +517,7 @@ body{
 					display: inline-block;
 					border-radius: vw(25);
 					background-color: #ffd200;
-					transition: all 0.1s linear;
+					transition: all 0.25s ease;
 					color: #000000;
 					font-size: vw(20);
 					font-weight: 500;
@@ -511,15 +544,6 @@ body{
 										margin-right: (md: vw2(13)),
 						));
 					}
-					&:hover{
-						padding: vw(19) vw(32);
-						margin-bottom: 0;
-						border-radius: vw(30);
-						@include media((
-										padding: (md: vw2(19) vw2(32)),
-										border-radius: (md: vw2(30)),
-						));
-					}
 				}
 			}
 
@@ -543,57 +567,31 @@ body{
 }
 
 .recept-page{
+	.logo{
+		display: block;
+		width: vw(131);
+		background: #ffffff;
+		padding: vw(30) vw(21) vw(34);
+		position: fixed;
+		left: vw(83);
+		top: 0;
+		z-index: 3;
+		@include media((
+						width: (md: vw2(131)),
+						left: (md: vw2(28)),
+						padding: (md: vw2(30) vw2(21) vw2(34)),
+		));
+		img{
+			display: block;
+			width: 100%;
+		}
+	}
+
 	.first-screen{
 		position: relative;
 		width: 100vw;
 		height: 100vh;
 		z-index: 1;
-		&::before{
-			z-index: 2;
-			content: "";
-			width: 100%;
-			height: 100%;
-			display: block;
-			background: #000000;
-			opacity: 0.5;
-			position: absolute;
-			left: 0;
-			top: 0;
-		}
-		.img{
-			position: absolute;
-			z-index: 1;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			img{
-				display: block;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: center top;
-			}
-		}
-		.logo{
-			display: block;
-			width: vw(131);
-			background: #ffffff;
-			padding: vw(30) vw(21) vw(34);
-			position: absolute;
-			left: vw(83);
-			top: 0;
-			z-index: 3;
-			@include media((
-							width: (md: vw2(131)),
-							left: (md: vw2(28)),
-							padding: (md: vw2(30) vw2(21) vw2(34)),
-			));
-			img{
-				display: block;
-				width: 100%;
-			}
-		}
 		.center-content{
 			position: relative;
 			z-index: 3;
@@ -657,20 +655,40 @@ body{
 				.arrow-down{
 					width: vw(74);
 					height: vw(100);
-					background: url("../img/arrow-down.png") #ffd200 center bottom vw(21) no-repeat;
+					background: url("../img/arrow-down.png") center bottom vw(21) no-repeat;
 					background-size: vw(27) auto;
 					cursor: pointer;
 					border-radius: vw(36);
-					transition: transform 0.1s linear;
+					position: relative;
+					animation: 0.5s infinite alternate arrowTD;
 					@include media((
 									width: (md: vw2(74)),
 									height: (md: vw2(100)),
 									border-radius: (md: vw2(36)),
 									background-size: (md: vw2(27) auto),
 									background-position: (md: center bottom vw2(21) ),
+									animation-name: (md: arrowTD_mob ),
 					));
+					&::after{
+						content: "";
+						display: block;
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						left: 0;
+						top: 0;
+						z-index: -1;
+						background: #ffd200;
+						transition: transform 0.25s linear;
+						border-radius: vw(36);
+						@include media((
+										border-radius: (md: vw2(36)),
+						));
+					}
 					&:hover{
-						transform: scale(1.1);
+						&::after{
+							transform: scale(1.1);
+						}
 					}
 				}
 				.label{
@@ -709,6 +727,20 @@ body{
 				top: 0;
 				left: 0;
 				transition: all  .38s ease-in-out;
+				z-index: -1;
+				&::before{
+					z-index: 2;
+					content: "";
+					width: 100%;
+					height: 100%;
+					display: block;
+					background: #000000;
+					opacity: 0.5;
+					position: absolute;
+					left: 0;
+					top: 0;
+					transition: opacity 0.5s ease;
+				}
 				img{
 					display: block;
 					width: 100%;
@@ -719,13 +751,16 @@ body{
 				&.is-sticky{
 					position: fixed;
 					height: auto;
-					top: vw(81);
+					top: calc(50% - 14.1vw);
 					left: vw(86);
 					width: vw(874);
 					@include media((
 									position: (md: static),
 									width: (md: 100%),
 					));
+					&::before{
+						opacity: 0;
+					}
 				}
 			}
 		}
@@ -1091,15 +1126,49 @@ body{
 							top: (md: vw2(-111)),
 			));
 		}
-
-		.bottom-block{
-			display: none;
+	}
+	.bottom-block{
+		padding-top:vw(27);
+		justify-content: flex-end;
+		.woman{
+			position: fixed;
+			left: vw(56);
+			bottom: vw(31);
+			z-index: 3;
+			filter: invert(1);
+			transition: filter 0.3s ease;
+			&.is-sticky{
+				filter: invert(0);
+			}
 			@include media((
-							display: (md: flex),
-							padding-top: (md: vw2(27)),
+							left: (md: vw2(31)),
+							bottom: (md: vw2(24)),
 			));
 		}
+		@include media((
+						display: (md: flex),
+						padding-top: (md: vw2(27)),
+		));
 	}
 }
 
+
+
+@keyframes arrowLR {
+	from {background-position: center right vw(24);}
+	to {background-position: center right vw(48);}
+}
+@keyframes arrowLR_mob {
+	from {background-position: center right vw2(24);}
+	to {background-position: center right vw2(48);}
+}
+
+@keyframes arrowTD {
+	from {background-position: center bottom vw(21);}
+	to {background-position: center bottom vw(51);}
+}
+@keyframes arrowTD_mob {
+	from {background-position: center bottom vw2(21);}
+	to {background-position: center bottom vw2(51);}
+}
 
