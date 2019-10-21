@@ -181,6 +181,12 @@ $(document).ready(function() {
             }
         });
 
+        $('.to-top').click(function () {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 410, 'linear');
+        });
+
         $('.first-screen .open .arrow-down').click(function () {
             if (scrolled == 0&& scrollLock == 0) {
                 $('html,body').animate({
