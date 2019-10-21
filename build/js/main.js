@@ -23,6 +23,11 @@ tpl:'<div class="fancybox-share"><h1>{{SHARE}}</h1><p><a class="fancybox-share__
 /* my scripts */
 
 $(document).ready(function() {
+
+    $('.swiper-container.recepts').find('.item').each(function () {
+        $(this).append('<div class="arrow-right"></div>');
+    });
+
     swiper = new Swiper('.swiper-container.recepts', {
         slidesPerView: 'auto',
         spaceBetween: 0,
@@ -44,7 +49,7 @@ $(document).ready(function() {
 
 
 
-    $('.first-slide .arrow-right').click(function () {
+    $('.swiper-container.recepts .arrow-right').click(function () {
         swiper.slideNext();
     });
 

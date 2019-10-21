@@ -282,6 +282,44 @@ body{
 				width: auto;
 				user-select: none;
 			}
+			.arrow-right{
+				width: vw(100);
+				height: vw(72);
+				border-radius: vw(36);
+				background: url(../img/arrow-right.png) center right vw(24) no-repeat;
+				background-size: vw(29) auto;
+				cursor: pointer;
+				animation: 0.5s infinite alternate arrowLR;
+				@include media((
+								width: (md: vw2(100)),
+								height: (md: vw2(72)),
+								border-radius: (md: vw2(36)),
+								background-size: (md: vw2(29) auto),
+								background-position: (md: center right vw2(24)),
+								animation-name: (md: arrowLR_mob),
+				));
+				&::after{
+					content: "";
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					left: 0;
+					top: 0;
+					z-index: -1;
+					background: #ffd200;
+					transition: transform 0.25s linear;
+					border-radius: vw(36);
+					@include media((
+									border-radius: (md: vw2(36)),
+					));
+				}
+				&:hover{
+					&::after{
+						transform: scale(1.1);
+					}
+				}
+			}
 			.first-slide{
 				margin-left: vw(81);
 				position: relative;
@@ -398,49 +436,15 @@ body{
 					}
 				}
 				.arrow-right{
-					width: vw(100);
-					height: vw(72);
-					border-radius: vw(36);
-					background: url(../img/arrow-right.png) center right vw(24) no-repeat;
-					background-size: vw(29) auto;
 					position: absolute;
 					right: 0;
 					top: vw(324);
-					cursor: pointer;
-					animation: 0.5s infinite alternate arrowLR;
 					@include media((
-									width: (md: vw2(100)),
-									height: (md: vw2(72)),
 									top: (md: auto),
 									right: (md: auto),
-									border-radius: (md: vw2(36)),
-									background-size: (md: vw2(29) auto),
-									background-position: (md: center right vw2(24)),
 									position: (md: relative),
 									margin-top: (md: vw2(45)),
-									animation-name: (md: arrowLR_mob),
 					));
-					&::after{
-						content: "";
-						display: block;
-						width: 100%;
-						height: 100%;
-						position: absolute;
-						left: 0;
-						top: 0;
-						z-index: -1;
-						background: #ffd200;
-						transition: transform 0.25s linear;
-						border-radius: vw(36);
-						@include media((
-										border-radius: (md: vw2(36)),
-						));
-					}
-					&:hover{
-						&::after{
-							transform: scale(1.1);
-						}
-					}
 				}
 			}
 			.item{
@@ -543,6 +547,19 @@ body{
 										height: (md: vw2(22)),
 										margin-right: (md: vw2(13)),
 						));
+					}
+				}
+				.arrow-right{
+					position: absolute;
+					right: vw(-117);
+					top: vw(324);
+					@include media((
+									display: (md: none),
+					));
+				}
+				&:last-child{
+					.arrow-right{
+						display: none;
 					}
 				}
 			}
