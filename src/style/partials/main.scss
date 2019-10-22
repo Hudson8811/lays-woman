@@ -1222,7 +1222,7 @@ body{
 				top: vw(563);
 				@include media((
 								width: (md: vw2(187)),
-								left: (md: vw2(734)),
+								left: (md: vw2(600)),
 								top: (md: vw2(563)),
 				));
 			}
@@ -1234,9 +1234,13 @@ body{
 			position: absolute;
 			left: 0;
 			bottom: vw(5);
+			img{
+				width: 100%;
+				display: block;
+			}
 			@include media((
-							width: (md: vw2(607)),
-							bottom: (md: vw2(5)),
+							width: (md: vw2(768)),
+							bottom: (md: vw2(55)),
 			));
 		}
 
@@ -1259,15 +1263,18 @@ body{
 			cursor: pointer;
 			@include media((
 							width: (md: vw2(198)),
-							bottom: (md: vw2(78)),
-							margin-left: (md: vw2(-99)),
-							margin-top: (md: vw2(0)),
+							bottom: (md: 0),
+							margin: (md: vw2(300) auto 0),
 							font-size: (md: vw2(20)),
 							border-radius: (md: vw2(25)),
 							letter-spacing: (md: vw2(0.36)),
 							padding: (md: vw2(12) vw2(26) vw2(14)),
 							border:  (md: vw2(2) solid #ffffff),
-							align-self: (md: flex-end)
+							align-self: (md: flex-end),
+							position: (md: static),
+							display: (md: block),
+							color: (md: #ee690d),
+							border-color: (md: #ee690d),
 			));
 			&:hover{
 				background: #ffffff;
