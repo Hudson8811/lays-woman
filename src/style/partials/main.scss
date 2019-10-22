@@ -144,7 +144,7 @@ body{
 		align-items: flex-start;
 		box-sizing: border-box;
 		@include media((
-						padding: (md: vw2(30) 0 vw2(45) vw2(19)),
+						padding: (md: vw2(30) 0 vw2(15) vw2(19)),
 						min-height: (md: vw2(200))
 		));
 		.logo{
@@ -153,7 +153,8 @@ body{
 			min-width: vw(131);
 			@include media((
 							width: (md: vw2(131)),
-							min-width: (md: vw2(131))
+							min-width: (md: vw2(131)),
+							position: (md: absolute )
 			));
 			img{
 				width: 100%;
@@ -168,8 +169,9 @@ body{
 			justify-content: flex-end;
 			width: vw(1245);
 			@include media((
-							margin-left: (md: vw2(30)),
-							width: (md: auto)
+							margin-left: (md: 0),
+							width: (md: auto),
+							justify-content: (md: flex-start)
 			));
 			.tab{
 				border-radius: vw(25);
@@ -191,6 +193,7 @@ body{
 				min-width: vw(120);
 				&:last-child{
 					margin-right: 0;
+					@include media((margin-right: (md: vw2(9))));
 				}
 				@include media((
 								border-radius: (md: vw2(25)),
@@ -200,11 +203,13 @@ body{
 								padding: (md: vw2(14) vw2(25)),
 								margin-top: (md: vw2(10)),
 								margin-right: (md: vw2(9)),
-								order: (md: 4)
+								order: (md: 4),
+								min-width: (md: 0),
 				));
 				&.order-1{@include media((order: (md: 1)));}
 				&.order-2{@include media((order: (md: 2)));}
 				&.order-3{@include media((order: (md: 3)));}
+				&.mobile-margin{@include media((margin-left: (md:  vw2(161))));}
 				&:hover{
 					background-color: #ea5012;
 					color: #fefefe;
@@ -276,7 +281,7 @@ body{
 
 	.main-container{
 		@include media((
-						height: (md: calc(100% - (281/768) *100vw )),
+						height: (md: calc(100% - (400/768) *100vw )),
 		));
 		.recepts{
 			padding-right: vw(135);
@@ -352,9 +357,8 @@ body{
 					font-weight: 700;
 					line-height: 0.8;
 					@include media((
-									font-size: (md: vw2(110)),
+									font-size: (md: vw2(85)),
 									text-align: (md: center),
-									width: (md: vw2(500)),
 									margin: (md: 0 auto),
 					));
 				}
@@ -362,13 +366,16 @@ body{
 					margin-top: vw(57);
 					margin-left: vw(113);
 					@include media((
-									margin: (md: vw2(22) auto 0),
-									width: (md: vw2(550)),
+									margin: (md: vw2(15) auto 0),
 					));
 					.flex-block{
 						display: flex;
 						align-items: flex-start;
 						width: vw(550);
+						@include media((
+										width: (md: vw2(550)),
+										margin: (md: 0 auto 0),
+						));
 						.avatar{
 							width: vw(168);
 							min-width: vw(168);
@@ -430,9 +437,10 @@ body{
 						line-height: vw(22);
 						width: vw(650);
 						@include media((
-										margin-top: (md: vw2(40)),
+										margin-top: (md: vw2(20)),
 										font-size: (md: vw2(21)),
 										line-height: (md: vw2(26)),
+										width: (md: vw2(650)),
 						));
 						p{
 							+p{
@@ -452,7 +460,7 @@ body{
 									top: (md: auto),
 									right: (md: auto),
 									position: (md: relative),
-									margin-top: (md: vw2(45)),
+									margin-top: (md: vw2(20)),
 					));
 				}
 			}
