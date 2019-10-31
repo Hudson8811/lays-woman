@@ -614,6 +614,7 @@ body{
 						width: (md: vw2(131)),
 						left: (md: vw2(28)),
 						padding: (md: vw2(30) vw2(21) vw2(34)),
+						position: (md: absolute),
 		));
 		img{
 			display: block;
@@ -626,6 +627,11 @@ body{
 		width: 100vw;
 		height: 100vh;
 		z-index: 1;
+		@include media((
+						width: (md: 100%),
+						height: (md: 0),
+						display: (md: block !important),
+		));
 		.center-content{
 			position: relative;
 			z-index: 3;
@@ -636,10 +642,8 @@ body{
 			align-items: center;
 			box-sizing: border-box;
 			@include media((
-							width: (md: vw2(700)),
-							height: (md: 100%),
+							width: (md: 100%),
 							justify-content: (md: space-between),
-							padding: (md: vw2(70) 0 vw2(150)),
 			));
 			.go-home{
 				display: inline-block;
@@ -653,17 +657,24 @@ body{
 				padding: vw(12) vw(26) vw(14);
 				margin-top: vw(127);
 				@include media((
-								margin-top: (md: vw2(0)),
-								font-size: (md: vw2(20)),
-								border-radius: (md: vw2(25)),
-								letter-spacing: (md: vw2(0.36)),
-								padding: (md: vw2(12) vw2(26) vw2(14)),
-								border:  (md: vw2(2) solid #ffffff),
-								align-self: (md: flex-end)
+								border: (md: none),
+								font-size: (md: 0px),
+								color: (md: transparent),
+								width: (md: vw2(50)),
+								height: (md: vw2(50)),
+								padding: (md: 0),
+								margin-top: (md: vw2(50)),
+								background: (md: url('../img/close.png') center center no-repeat),
+								background-size: (md: contain),
+								filter: (md: drop-shadow(2px 4px 6px black)),
 				));
 				&:hover{
 					background: #ffffff;
 					color: #000000;
+					@include media((
+									background: (md: url('../img/close.png') center center no-repeat),
+									color: (md: transparent),
+					));
 				}
 			}
 			.title{
@@ -676,6 +687,7 @@ body{
 				@include media((
 								margin-top: (md: vw2(0)),
 								font-size: (md: vw2(70)),
+								display: (md: none),
 				));
 			}
 			.open{
@@ -685,6 +697,7 @@ body{
 				margin-top: vw(120);
 				@include media((
 								margin-top: (md: vw2(50)),
+								display: (md: none),
 				));
 				.arrow-down{
 					width: vw(74);
@@ -747,7 +760,7 @@ body{
 
 		@include media((
 						display: (md: block),
-						padding: (md: vw2(21)),
+						padding: (md: 0),
 		));
 		.left{
 			width: vw(874);
@@ -762,6 +775,11 @@ body{
 				left: 0;
 				transition: all  .38s ease-in-out;
 				z-index: -1;
+				@include media((
+								position: (md: static),
+								width: (md: 100%),
+								height: (md: auto),
+				));
 				&::before{
 					z-index: 2;
 					content: "";
@@ -774,6 +792,9 @@ body{
 					left: 0;
 					top: 0;
 					transition: opacity 0.5s ease;
+					@include media((
+									display: (md: none),
+					));
 				}
 				img{
 					display: block;
@@ -798,6 +819,7 @@ body{
 									position: (md: static),
 									margin-top: (md: vw2(9)),
 									font-size: (md: vw2(15)),
+									opacity: (md: 1),
 					));
 				}
 				&.is-sticky{
@@ -826,7 +848,8 @@ body{
 			@include media((
 							margin-left: (md: 0),
 							width: (md: auto),
-							padding-left: (md: vw2(14)),
+							padding-left: (md: vw2(80)),
+							padding-right: (md: vw2(80)),
 							padding-top: (md: vw2(39))
 			));
 			.tags{
@@ -864,9 +887,9 @@ body{
 				line-height: vw(65);
 				margin-top: vw(30);
 				@include media((
-							font-size: (md: vw2(65)),
+							font-size: (md: vw2(60)),
 							margin-top: (md: vw2(30)),
-							line-height: (md: vw2(65)),
+							line-height: (md: vw2(60)),
 				));
 			}
 			.time{
@@ -1010,7 +1033,7 @@ body{
 				));
 				.block{
 					@include media((
-									padding-left: (md: vw2(24)),
+									padding-left: (md: 0),
 					));
 					+.block{
 						margin-top: vw(57);
@@ -1028,7 +1051,8 @@ body{
 										box-shadow: (md: 0 0 vw2(38) rgba(0, 0, 0, 0.04)),
 										border-radius: (md: vw2(15)),
 										padding: (md: vw2(40) vw2(40) vw2(47) vw2(47)),
-										margin-left: (md: vw2(-23)),
+										margin-left: (md: vw2(-47)),
+										margin-right: (md: vw2(-47)),
 						));
 					}
 					.title{
@@ -1052,7 +1076,7 @@ body{
 					.list {
 						width: vw(634);
 						@include media((
-										width: (md: vw2(634)),
+										width: (md: 100%),
 						));
 						.row{
 							overflow: hidden;
@@ -1117,8 +1141,118 @@ body{
 		}
 	}
 
+	.ficher-block{
+		background: #ffffff;
+		padding-bottom: vw(100);
+		padding-top: vw(85);
+		@include media((
+						padding-top: (md: vw2(50)),
+						padding-bottom: (md: vw2(40)),
+		));
+		.title{
+			color: #000000;
+			font-size: vw(22);
+			font-weight: 700;
+			text-transform: uppercase;
+			text-align: center;
+			margin-bottom: vw(45);
+			@include media((
+							font-size: (md: vw2(22)),
+							margin-bottom: (md: vw2(30)),
+			));
+		}
+		.flex-block{
+			display: flex;
+			justify-content: space-between;
+			width: vw(1743);
+			margin: 0 auto;
+			@include media((
+							display: (md: block),
+							width: (md: auto),
+							padding-left: (md: vw2(80)),
+							padding-right: (md: vw2(80)),
+			));
+			.item{
+				width: vw(544);
+				text-align: center;
+				@include media((
+								width: (md: 100%),
+				));
+				+.item{
+					@include media((
+									margin-top: (md: vw2(45)),
+					));
+				}
+				&:nth-child(n+3){
+					@include media((
+									display: (md: none),
+					));
+				}
+				.img-block{
+					width: 100%;
+					height: vw(362);
+					@include media((
+									height: (md: vw2(362)),
+					));
+					img{
+						display: block;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+				.title-item{
+					color: #000000;
+					font-family: $font2;
+					font-size: vw(36);
+					font-weight: 700;
+					margin: vw(20) auto 0;
+					width: 85%;
+					@include media((
+									font-size: (md: vw2(30)),
+									margin-top: (md: vw2(15)),
+					));
+				}
+				.open{
+					margin-top: vw(12);
+					display: inline-block;
+					border-radius: vw(25);
+					background-color: #ffd200;
+					transition: all 0.25s ease;
+					color: #000000;
+					font-size: vw(20);
+					font-weight: 500;
+					line-height: 1;
+					letter-spacing: vw(0.36);
+					padding: vw(14) vw(32);
+					@include media((
+									margin-top: (md: vw2(10)),
+									border-radius: (md: vw2(25)),
+									font-size: (md: vw2(20)),
+									letter-spacing: (md: vw2(0.36)),
+									padding: (md: vw2(14) vw2(25)),
+					));
+					img{
+						width: vw(22);
+						height: vw(22);
+						display: inline-block;
+						vertical-align: middle;
+						margin-right: vw(13);
+						@include media((
+										width: (md: vw2(22)),
+										height: (md: vw2(22)),
+										margin-right: (md: vw2(13)),
+						));
+					}
+					&:hover{
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+
 	.promo-block{
-		margin-top: vw(40);
 		width: 100%;
 		height: vw(1132);
 		background: url("../img/bottom-bg.jpg") center top no-repeat;
@@ -1126,7 +1260,6 @@ body{
 		position: relative;
 		box-sizing: border-box;
 		@include media((
-						margin-top: (md: vw2(30)),
 						height: (md: auto),
 						padding: (md: vw2(626) vw2(25) vw2(6)),
 						background-image: (md: url("../img/bg-bottom-2.jpg")),
@@ -1307,12 +1440,56 @@ body{
 			@include media((
 							left: (md: vw2(49)),
 							bottom: (md: vw2(24)),
+							position: (md: static),
+							filter: (md: invert(0)),
 			));
 		}
 		@include media((
 						display: (md: flex),
 						padding-top: (md: vw2(27)),
+						justify-content: (md: space-between),
 		));
+	}
+
+	.other-link{
+		display: block;
+		width: vw(29);
+		height: vw(27);
+		position: fixed;
+		top: 50%;
+		margin-top: vw(-14);
+		filter: invert(1);
+		transition: 0.3s ease;
+		z-index: 11;
+		@include media((
+						width: (md: vw2(29)),
+						height: (md: vw2(27)),
+						top: (md: vw2(230)),
+						margin-top: (md: 0),
+						filter: (md: none),
+		));
+		&:hover{
+			opacity: 0.6;
+		}
+		&.other-prev{
+			background: url("../img/arr-prev-item.png") center center no-repeat;
+			background-size: contain;
+			left: vw(23);
+			@include media((
+							left: (md: vw2(23)),
+			));
+		}
+		&.other-next{
+			background: url("../img/arr-next-item.png") center center no-repeat;
+			background-size: contain;
+			right: vw(23);
+			@include media((
+							right: (md: vw2(23)),
+			));
+		}
+		&.is-sticky{
+			filter: invert(0);
+		}
 	}
 }
 

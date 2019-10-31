@@ -125,6 +125,7 @@ $(document).ready(function() {
     var $window = $( window );
     var $featuredImage = $( ".recept-block .left .img" );
     var $featuredImage2 = $( ".recept-page .bottom-block .woman" );
+    var $featuredImage3 = $( ".other-link" );
     var offsetTo = 0;
 
     scrolled = 0;
@@ -132,28 +133,56 @@ $(document).ready(function() {
 
     if ($('.recept-page').hasClass('recept-page')){
         $(window).on('scroll', function() {
-            var scrollTop = $(this).scrollTop();
-            if (scrollTop > 0 && scrolled == 0 && scrollLock == 0){
-                scrollLock = 1;
-                scrolled = 1;
-                lockScroll();
-                $('.first-screen').slideUp(400);
-                $('html,body').animate({
-                    scrollTop: 1
-                }, 410, 'linear');
-                setTimeout(function () {
-                    scrollLock = 0;
-                    unlockScroll();
-                }, 450);
-            } else if (scrollTop == 0 && scrolled == 1 && scrollLock == 0){
-                scrollLock = 1;
-                scrolled = 0;
-                $('.first-screen').slideDown(400);
-                lockScroll();
-                setTimeout(function () {
-                    scrollLock = 0;
-                    unlockScroll();
-                }, 450);
+            if ($(window).width() >1024) {
+                var scrollTop = $(this).scrollTop();
+                if (scrollTop > 0 && scrolled == 0 && scrollLock == 0) {
+                    scrollLock = 1;
+                    scrolled = 1;
+                    lockScroll();
+                    $('.first-screen').slideUp(400);
+                    $('html,body').animate({
+                        scrollTop: 1
+                    }, 410, 'linear');
+                    setTimeout(function () {
+                        scrollLock = 0;
+                        unlockScroll();
+                    }, 450);
+                } else if (scrollTop == 0 && scrolled == 1 && scrollLock == 0) {
+                    scrollLock = 1;
+                    scrolled = 0;
+                    $('.first-screen').slideDown(400);
+                    lockScroll();
+                    setTimeout(function () {
+                        scrollLock = 0;
+                        unlockScroll();
+                    }, 450);
+                }
+            }
+        });
+
+
+        $('.first-screen .open .arrow-down').click(function () {
+            if ($(window).width() >1024) {
+                if (scrolled == 0 && scrollLock == 0) {
+                    $('html,body').animate({
+                        scrollTop: 1
+                    }, 100, 'linear');
+                }
+            }
+        });
+
+
+        $window.on( "scroll", function() {
+            if ($(window).width() >1024) {
+                $featuredImage.toggleClass("is-sticky",
+                    $window.scrollTop() > offsetTo
+                );
+                $featuredImage2.toggleClass("is-sticky",
+                    $window.scrollTop() > offsetTo
+                );
+                $featuredImage3.toggleClass("is-sticky",
+                    $window.scrollTop() > offsetTo
+                );
             }
         });
 
@@ -162,24 +191,6 @@ $(document).ready(function() {
                 scrollTop: 0
             }, 410, 'linear');
         });
-
-        $('.first-screen .open .arrow-down').click(function () {
-            if (scrolled == 0&& scrollLock == 0) {
-                $('html,body').animate({
-                    scrollTop: 1
-                }, 100, 'linear');
-            }
-        });
-
-
-        $window.on( "scroll", function() {
-            $featuredImage.toggleClass( "is-sticky",
-                $window.scrollTop() > offsetTo
-            );
-            $featuredImage2.toggleClass( "is-sticky",
-                $window.scrollTop() > offsetTo
-            );
-        } );
 
     }
 
